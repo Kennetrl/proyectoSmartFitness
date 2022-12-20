@@ -1,6 +1,8 @@
 package dominio;
 
 public class Cuenta {
+	
+	//atributos
 	private int id;
 	private String nombre;
 	private String correo;
@@ -8,6 +10,27 @@ public class Cuenta {
 	String nombreLista [];
 	String contraseniaLista [];
 	
+	//método constructor sin argumentos
+	public Cuenta(){
+	}
+	
+	//método constructor con argumentos
+	public Cuenta(int id, String nombre, String correo, String contrasenia) {
+		this.id=id;
+		this.nombre=nombre;
+		this.correo=correo;
+		this.contrasenia=contrasenia;
+	}
+	
+	//método constructor con referencia a objeto
+	public Cuenta(Cuenta cuenta) {
+		this.id=cuenta.id;
+		this.nombre=cuenta.nombre;
+		this.correo=cuenta.correo;
+		this.contrasenia=cuenta.contrasenia;
+	}
+	
+	//métodos constructores get y set
 	public int getId() {
 		return id;
 	}
@@ -32,21 +55,16 @@ public class Cuenta {
 	public void setContrasenia(String contrasenia) {
 		this.contrasenia = contrasenia;
 	}
-	
-	
 	public boolean validar() {
 		boolean validar = false;
-		String nombreLista [] = {"Kennet", "Vinicio"};
-		String contraseniaLista [] = {"123", "1234"};
-		for(int i=0; i<nombreLista.length; i++){
-			if(nombre.equals(nombreLista[i]) && contrasenia.equals(contraseniaLista[i])) {
-				validar = true;
+		String nombreLista [] = {"Rodney", "Marlon", "Jonathan", "Vinicio","Vanessa", "Kennet"};
+		String contraseniaLista [] = {"54321", "abc", "9876", "kjhg","1928", "123"};
+		for(int i=0; i<nombreLista.length; i++) {
+			if(nombre.equals(nombreLista[i])&& contrasenia.equals(contraseniaLista[i])) {
+				
+				return validar = true;
 			}
 		}
 		return validar;
 	}
-	
-	
-	
-	
 }

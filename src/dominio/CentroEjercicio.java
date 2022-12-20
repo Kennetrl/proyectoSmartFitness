@@ -32,7 +32,7 @@ public class CentroEjercicio {
 				//Iniciar Sesion
 				String entrenadores [] = {"Pablo", "Luis"};
 				
-				System.out.println("Ingrese el Usuario");
+				System.out.println("Ingr1ese el Usuario");
 				
 				leer.nextLine();
 				String nombre = leer.nextLine();

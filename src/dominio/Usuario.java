@@ -1,11 +1,34 @@
 package dominio;
 
 public class Usuario extends Cuenta{
+	
+	//atributos
 	private String tipoEnfermedad;
 	private int edad;
 	private double peso;
 	private double altura;
 	
+	//método constructor sin argumentos
+	public Usuario() {
+	}
+	
+	//método constructor con argumentos
+	public Usuario(String tipoEnfermedad, int edad, double peso, double altura) {
+		this.tipoEnfermedad=tipoEnfermedad;
+		this.edad=edad;
+		this.peso=peso;
+		this.altura=altura;
+	}
+	
+	//método constructor con referencia a objetos
+	public Usuario(Usuario usuario) {
+		this.tipoEnfermedad=usuario.tipoEnfermedad;
+		this.edad=usuario.edad;
+		this.peso=usuario.peso;
+		this.altura=usuario.altura;
+	}
+	
+	//métodos constructores get y set
 	public String getTipoEnfermedad() {
 		return tipoEnfermedad;
 	}
@@ -30,7 +53,4 @@ public class Usuario extends Cuenta{
 	public void setAltura(double altura) {
 		this.altura = altura;
 	}
-	
-	
-	
 }
