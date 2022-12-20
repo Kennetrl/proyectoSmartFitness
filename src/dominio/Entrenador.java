@@ -27,5 +27,11 @@ public class Entrenador extends Cuenta{
 	public void setCertificadoProfesional(boolean certificadoProfesional) {
 		this.certificadoProfesional = certificadoProfesional;
 	}
+
+	@Override
+	public String toString() {
+		return "Entrenador \ncertificadoProfesional=" + certificadoProfesional;
+	}
+	
 	
 }

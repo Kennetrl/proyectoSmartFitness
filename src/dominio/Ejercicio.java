@@ -38,6 +38,11 @@ public class Ejercicio {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+
+	@Override
+	public String toString() {
+		return "Ejercicio \nId=" + id + "\nnombre=" + nombre;
+	}
 	
 	
 }

@@ -22,15 +22,15 @@ public class CentroEjercicio {
 	public static void sesion(Scanner leer, int opcionSesion, boolean correcto) {
 		Usuario usuario = new Usuario();
 		do {
-			System.out.println("Ingrese la opción");
-			System.out.println("1 - Iniciar Sesión");
+			System.out.println("Ingrese la opcion");
+			System.out.println("1 - Iniciar Sesion");
 			System.out.println("2 - Registrarse");
 			
 			opcionSesion = leer.nextInt();
 			
 			if(opcionSesion == 1) {
 				//Iniciar Sesion
-				String entrenadores [] = {"Pablo", "Luis"};
+				String entrenadores [] = {"Pablito", "Luis"};
 				
 				System.out.println("Ingr1ese el Usuario");
 				
@@ -44,18 +44,6 @@ public class CentroEjercicio {
 				contrasenia = leer.nextLine();
 				usuario.setContrasenia(contrasenia);
 				
-				if(usuario.validar()) {
-					System.out.println("========================");
-					System.out.println("Accediendo al Sistema");
-					System.out.println("========================");
-					
-					menu(leer, correcto);
-					
-				}else {
-					System.out.println("Usuario o Contraseña Incorrecta");
-				}
-							
-				correcto = true;
 			} else if(opcionSesion == 2) {
 				//Registrarse
 				
@@ -80,7 +68,7 @@ public class CentroEjercicio {
 				do {
 					correcto = false;
 					String contraseniaLista;
-					System.out.println("Ingrese su contraseña");
+					System.out.println("Ingrese su contrasenia");
 					contraseniaLista=leer.nextLine();
 					String contraseniaLista2;
 					System.out.println("Ingrese su contraseña nuevamente");
@@ -89,7 +77,7 @@ public class CentroEjercicio {
 						correcto=true;
 						usuario.setContrasenia(contraseniaLista);
 					} else {
-						System.out.println("Error al digitar la contraseña");
+						System.out.println("Error al digitar la contrasenia");
 						correcto=false;
 					}
 				}while(!correcto);
@@ -99,7 +87,7 @@ public class CentroEjercicio {
 				menu(leer, correcto);
 				correcto = true;
 			} else {
-				System.out.println("Digite correctamente la opción");
+				System.out.println("Digite correctamente la opcion");
 				correcto = false;
 			}
 		}while(!correcto);
@@ -108,7 +96,7 @@ public class CentroEjercicio {
 	public static void menu(Scanner leer, boolean correcto) {
 		correcto = false;
 		int opcion;
-		System.out.println("Elija la opción");
+		System.out.println("Elija la opcion");
 		System.out.println("========================");
 		System.out.println("1 - GESTIONAR PERFIL");
 		System.out.println("2 - PLAN DE ENTRAMIENTO");
@@ -120,15 +108,15 @@ public class CentroEjercicio {
 		
 		switch(opcion){
 		case 1:
-			System.out.println("Esta es la opción 1");
+			System.out.println("Esta es la opcion 1");
 			menu(leer, correcto);
 			break;
 		case 2:
-			System.out.println("Esta es la opción 2");
+			System.out.println("Esta es la opcion 2");
 			menu(leer, correcto);
 			break;
 		case 3:
-			System.out.println("Esta es la opción 3");
+			System.out.println("Esta es la opcion 3");
 			menu(leer, correcto);
 			break;
 		case 4:
@@ -139,7 +127,7 @@ public class CentroEjercicio {
 			System.out.println("Gracias por usar el programa <3");
 			break;
 		default:
-			System.out.println("Digite bien la opción");
+			System.out.println("Digite bien la opcion");
 			menu(leer, correcto);
 		}
 	}

@@ -49,4 +49,11 @@ public class ItemEjercicio {
 	public void setTipoEjercicio(String tipoEjercicio) {
 		this.tipoEjercicio = tipoEjercicio;
 	}
+
+	@Override
+	public String toString() {
+		return "ItemEjercicio \nejercicio=" + ejercicio + "\nrepeticion=" + repeticion + "\ntipoEjercicio="
+				+ tipoEjercicio;
+	}
+	
 }

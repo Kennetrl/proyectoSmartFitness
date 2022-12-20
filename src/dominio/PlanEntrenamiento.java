@@ -38,5 +38,10 @@ public class PlanEntrenamiento {
 	public void setNombrePlanEntrenamiento(String nombrePlanEntrenamiento) {
 		this.nombrePlanEntrenamiento = nombrePlanEntrenamiento;
 	}
-		
+
+	@Override
+	public String toString() {
+		return "PlanEntrenamiento \nid=" + id + "\nnombrePlanEntrenamiento=" + nombrePlanEntrenamiento;
+	}
+	
 }

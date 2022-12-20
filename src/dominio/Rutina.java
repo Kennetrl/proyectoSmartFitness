@@ -3,15 +3,14 @@ package dominio;
 public class Rutina {
 	
 	//atributos
+	private int id;
 	private double tiempoEmpleado;
-	private Ejercicio ejercicio;
+	private int repeticion;
+	private String nombreRutina;
+	
 	public double getTiempoEmpleado() {
 		return tiempoEmpleado;
 	}
-
-	private int repeticion;
-	private int id;
-	private String nombreRutina;
 	
 	//método constructor sin argumentos
 	public Rutina() {
@@ -21,7 +20,6 @@ public class Rutina {
 	public Rutina(double tiempoEmpleado, Ejercicio ejercicio, int repeticion, int id, String nombreRutina) {
 		this.tiempoEmpleado = tiempoEmpleado;
 		this.repeticion = repeticion;
-		this.ejercicio = ejercicio;
 		this.id = id;
 		this.nombreRutina = nombreRutina;
 	}
@@ -36,14 +34,6 @@ public class Rutina {
 	
 	public void setTiempoEmpleado(double tiempoEmpleado) {
 		this.tiempoEmpleado = tiempoEmpleado;
-	}
-
-	public Ejercicio getEjercicio() {
-		return ejercicio;
-	}
-
-	public void setEjercicio(Ejercicio ejercicio) {
-		this.ejercicio = ejercicio;
 	}
 
 	public int getRepeticion() {
@@ -68,6 +58,12 @@ public class Rutina {
 
 	public void setNombreRutina(String nombreRutina) {
 		this.nombreRutina = nombreRutina;
+	}
+
+	@Override
+	public String toString() {
+		return "Rutina \nid=" + id + "\ntiempoEmpleado=" + tiempoEmpleado + " minutos" + "\nrepeticion=" + repeticion + " veces"
+				+ "\nnombreRutina=" + nombreRutina;
 	}
 	
 	

@@ -1,25 +1,25 @@
 package dominio;
 
-public class Sugerencias {
+public class Sugerencia {
 	
 	//atributos
 	private int id;
 	private String comentario;
 	
 	//método constructor sin argumentos
-	public Sugerencias() {
+	public Sugerencia() {
 	}
 	
 	//método constructor con argumentos
-	public Sugerencias(int id, String comentario) {
+	public Sugerencia(int id, String comentario) {
 		this.id = id;
 		this.comentario = comentario;
 	}
 	
 	//método constructor con referencia a objetos
-	public Sugerencias(Sugerencias sugerencias) {
-		this.id = sugerencias.id;
-		this.comentario = sugerencias.comentario;
+	public Sugerencia(Sugerencia sugerencia) {
+		this.id = sugerencia.id;
+		this.comentario = sugerencia.comentario;
 	}
 	
 	//métodos constructores get y set
@@ -38,5 +38,12 @@ public class Sugerencias {
 	public void setComentario(String comentario) {
 		this.comentario = comentario;
 	}
+
+	@Override
+	public String toString() {
+		return "Sugerencia \nid=" + id + "\ncomentario=" + comentario;
+	}
+	
+	
 	
 }

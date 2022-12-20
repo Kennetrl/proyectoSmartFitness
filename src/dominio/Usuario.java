@@ -53,4 +53,10 @@ public class Usuario extends Cuenta{
 	public void setAltura(double altura) {
 		this.altura = altura;
 	}
+
+	@Override
+	public String toString() {
+		return "Usuario \ntipoEnfermedad=" + tipoEnfermedad + "\nedad=" + edad + "\npeso=" + peso + " kg" + "\naltura=" + altura + " metros";
+	}
+	
 }

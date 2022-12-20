@@ -1,5 +1,6 @@
 package dominio;
 
+
 public class Cuenta {
 	
 	//atributos
@@ -7,8 +8,6 @@ public class Cuenta {
 	private String nombre;
 	private String correo;
 	private String contrasenia;
-	String nombreLista [];
-	String contraseniaLista [];
 	
 	//método constructor sin argumentos
 	public Cuenta(){
@@ -55,16 +54,11 @@ public class Cuenta {
 	public void setContrasenia(String contrasenia) {
 		this.contrasenia = contrasenia;
 	}
-	public boolean validar() {
-		boolean validar = false;
-		String nombreLista [] = {"Rodney", "Marlon", "Jonathan", "Vinicio","Vanessa", "Kennet"};
-		String contraseniaLista [] = {"54321", "abc", "9876", "kjhg","1928", "123"};
-		for(int i=0; i<nombreLista.length; i++) {
-			if(nombre.equals(nombreLista[i])&& contrasenia.equals(contraseniaLista[i])) {
-				
-				return validar = true;
-			}
-		}
-		return validar;
+
+	@Override
+	public String toString() {
+		return "Cuenta \nid=" + id + "\nnombre=" + nombre + "\ncorreo=" + correo + "\ncontrasenia=" + contrasenia;
 	}
+	
+	
 }
