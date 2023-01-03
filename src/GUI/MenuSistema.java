@@ -6,8 +6,19 @@ import dominio.Usuario;
 import util.Validaciones;
 
 public class MenuSistema {
+	private static int id;
+	private static String nombre;
+	private static String correo;
+	private static String contrasenia;
+	private static double altura;
+	private static int edad;
+	private static double peso;
+	private static String tipoEnfermedad;
+	
 	//Poner las opciones de nivel 0 de casos de uso
-	public static void sesion(Scanner leer, boolean correcto) {
+	public static void sesion() {
+		Scanner leer = new Scanner(System.in);
+		boolean correcto=false;
 		boolean correcto2=false;
 		do {
 			//H0. Ingresar Sistemas
@@ -53,21 +64,21 @@ public class MenuSistema {
 		
 		Usuario usuario = new Usuario();
 		System.out.println("Ingrese su id");
-		int id = leer.nextInt();
+		id = leer.nextInt();
 		System.out.println("Ingrese su nombre");
-		String nombre = leer.next();
+		nombre = leer.next();
 		System.out.println("Ingrese su correo");
-		String correo = leer.next();
+		correo = leer.next();
 		System.out.println("Ingrese su contrasenia");
-		String contrasenia = leer.next();
+		contrasenia = leer.next();
 		System.out.println("Ingrese su altura");
-		double altura = leer.nextDouble();
+		altura = leer.nextDouble();
 		System.out.println("Ingrese su edad");
-		int edad = leer.nextInt();
+		edad = leer.nextInt();
 		System.out.println("Ingrese su peso");
-		double peso = leer.nextDouble();
+		peso = leer.nextDouble();
 		System.out.println("Ingrese su tipo de enfermedad");
-		String tipoEnfermedad = leer.next();
+		tipoEnfermedad = leer.next();
 		leer.close();
 		
 		usuario.setId(id);
@@ -85,7 +96,6 @@ public class MenuSistema {
 	public static void modificarCuenta(boolean correcto2){
 		Scanner leer = new Scanner(System.in);
 		
-		
 		System.out.println("ELIJE LA OPCION A MODIFICAR");
 		System.out.println("1 - Id");
 		System.out.println("2 - Nombre");
@@ -99,40 +109,57 @@ public class MenuSistema {
 	
 		String opcion = leer.next();
 		correcto2 = Validaciones.validarOpcion9(opcion);
-		leer.close();
 		if(correcto2) {
 
 			switch(opcion) {
 			case "1":
-				
+				System.out.println("Ingrese el nuevo id");
+				id = leer.nextInt();
+				System.out.println("Nuevo id registrado");
 				break;
 			case "2":
-				
+				System.out.println("Ingrese el nuevo nombre");
+				nombre = leer.next();
+				System.out.println("Nuevo nombre registrado");
 				break;
 			case "3":
-		
+				System.out.println("Ingrese el nuevo correo");
+				correo = leer.next();
+				System.out.println("Nuevo correo registrado");
 				break;
 			case "4":
-		
+				System.out.println("Ingrese la nueva contrasenia");
+				contrasenia = leer.next();
+				System.out.println("Nueva contrasenia registrado");
 				break;
 			case "5":
-		
+				System.out.println("Ingrese la nueva altura");
+				altura = leer.nextDouble();
+				System.out.println("Nueva altura registrado");
 				break;
 			case "6":
-		
+				System.out.println("Ingrese la nueva edad");
+				edad = leer.nextInt();
+				System.out.println("Nueva edad registrada");
 				break;
 			case "7":
-		
+				System.out.println("Ingrese el nuevo peso");
+				peso = leer.nextDouble();
+				System.out.println("Nuevo peso registrado");
 				break;
 			case "8":
-		
+				System.out.println("Ingrese el nuevo Tipo de Enfermedad");
+				tipoEnfermedad = leer.next();
+				System.out.println("Nuevo tipo de enfermedad registrado");
 				break;
 			case "9":
-				System.out.println("Regresando al menu principal");
+				System.out.println("Regresando");
+				
 				break;
 			}
 		} else {
 			System.out.println("Opcion Incorrecta");
 		}
 	}
+	
 }

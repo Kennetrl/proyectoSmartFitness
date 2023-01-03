@@ -22,6 +22,9 @@ public class Cuenta {
 	 * Constructor sin argumentos de la clase Cuenta.
 	 */
 	public Cuenta(){
+		nombre = "Juan";
+		correo = "juan@hotmail.com";
+		contrasenia = "juanito123";
 	}
 	
 	/**

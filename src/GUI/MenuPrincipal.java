@@ -48,7 +48,7 @@ public class MenuPrincipal {
 		correcto = false;
 			switch(opcion){
 			case 1:
-				MenuSistema.sesion(leer, correcto);
+				MenuSistema.sesion();
 				break;
 			case 2:
 				System.out.println("Esta es la opcion 2");
