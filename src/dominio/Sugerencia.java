@@ -41,7 +41,7 @@ public class Sugerencia {
 
 	@Override
 	public String toString() {
-		return "Sugerencia \nid=" + id + "\ncomentario=" + comentario;
+		return "Sugerencia \nid=" + id + "\ncomentario=" +comentario;
 	}
 	
 	

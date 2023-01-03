@@ -1,135 +1,75 @@
 package dominio;
-import java.util.Scanner;
+
+import java.util.Arrays;
+
 public class CentroEjercicio {
+	private String nombreCentro;
+	private String telefono;
+	private String direccion;
+	private int numCuentas;
+	private Cuenta cuentas[];
 	
-	public static void main(String[] args) {
-		
-		//Variables
-		int opcionSesion=0;
-		boolean correcto=true;
-		
-		//Bienvenida
-		System.out.println("============================");
-		System.out.println("BIENVENIDOS A SMART FITNESS");
-		System.out.println("============================");
-		
-		Scanner leer = new Scanner(System.in);
-		
-		sesion(leer, opcionSesion, correcto);
-		
+	public CentroEjercicio() {
+		this.nombreCentro="Smart Fitness";
+		this.telefono="+593 99 999 9999";
+		this.direccion="Quito, Ecuador";
+		this.numCuentas=6;
+		this.cuentas = new Cuenta[numCuentas];
 	}
 	
-	public static void sesion(Scanner leer, int opcionSesion, boolean correcto) {
-		Usuario usuario = new Usuario();
-		do {
-			System.out.println("Ingrese la opcion");
-			System.out.println("1 - Iniciar Sesion");
-			System.out.println("2 - Registrarse");
-			
-			opcionSesion = leer.nextInt();
-			
-			if(opcionSesion == 1) {
-				//Iniciar Sesion
-				String entrenadores [] = {"Pablito", "Luis"};
-				
-				System.out.println("Ingr1ese el Usuario");
-				
-				leer.nextLine();
-				String nombre = leer.nextLine();
-				usuario.setNombre(nombre);
-				
-				System.out.println("Ingrese la Contraseña");
-				
-				String contrasenia = "";
-				contrasenia = leer.nextLine();
-				usuario.setContrasenia(contrasenia);
-				
-			} else if(opcionSesion == 2) {
-				//Registrarse
-				
-				do {
-					correcto = false;
-					
-					System.out.println("Ingrese su nombre");
-					leer.nextLine();
-					String nombreLista=leer.nextLine();
-					
-					System.out.println("Ingrese su nombre nuevamente");
-					String nombreLista2=leer.nextLine();
-					if(nombreLista.equals(nombreLista2)) {
-						correcto=true;
-						usuario.setNombre(nombreLista);
-					} else {
-						System.out.println("Error al digitar el nombre");
-						correcto=false;
-					}
-				}while(!correcto);
-				
-				do {
-					correcto = false;
-					String contraseniaLista;
-					System.out.println("Ingrese su contrasenia");
-					contraseniaLista=leer.nextLine();
-					String contraseniaLista2;
-					System.out.println("Ingrese su contraseña nuevamente");
-					contraseniaLista2=leer.nextLine();
-					if(contraseniaLista.equals(contraseniaLista2)) {
-						correcto=true;
-						usuario.setContrasenia(contraseniaLista);
-					} else {
-						System.out.println("Error al digitar la contrasenia");
-						correcto=false;
-					}
-				}while(!correcto);
-				
-				
-				System.out.println("Te registraste");
-				menu(leer, correcto);
-				correcto = true;
-			} else {
-				System.out.println("Digite correctamente la opcion");
-				correcto = false;
-			}
-		}while(!correcto);
+	public CentroEjercicio(String nombreCentro, String telefono, String direccion, int numCuentas, Cuenta cuentas[]) {
+		this.nombreCentro = nombreCentro;
+		this.telefono=telefono;
+		this.direccion=direccion;
+		this.numCuentas=numCuentas;
+		this.cuentas = cuentas;
 	}
 	
-	public static void menu(Scanner leer, boolean correcto) {
-		correcto = false;
-		int opcion;
-		System.out.println("Elija la opcion");
-		System.out.println("========================");
-		System.out.println("1 - GESTIONAR PERFIL");
-		System.out.println("2 - PLAN DE ENTRAMIENTO");
-		System.out.println("3 - PROGRESO");
-		System.out.println("4 - SUGERENCIAS");
-		System.out.println("5 - SALIR");
-		System.out.println("========================");
-		opcion = leer.nextInt();
-		
-		switch(opcion){
-		case 1:
-			System.out.println("Esta es la opcion 1");
-			menu(leer, correcto);
-			break;
-		case 2:
-			System.out.println("Esta es la opcion 2");
-			menu(leer, correcto);
-			break;
-		case 3:
-			System.out.println("Esta es la opcion 3");
-			menu(leer, correcto);
-			break;
-		case 4:
-			System.out.println("Esta es la opción 4");
-			menu(leer, correcto);
-			break;
-		case 5:
-			System.out.println("Gracias por usar el programa <3");
-			break;
-		default:
-			System.out.println("Digite bien la opcion");
-			menu(leer, correcto);
-		}
+	public CentroEjercicio(CentroEjercicio centro) {
+		this.nombreCentro = centro.nombreCentro;
+		this.telefono = centro.telefono;
+		this.direccion = centro.direccion;
+		this.numCuentas = centro.numCuentas;
+		this.cuentas = centro.cuentas;
+	}
+	
+	public String getNombreCentro() {
+		return nombreCentro;
+	}
+	public void setNombreCentro(String nombreCentro) {
+		this.nombreCentro = nombreCentro;
+	}
+	public String getTelefono() {
+		return telefono;
+	}
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
+	}
+	public String getDireccion() {
+		return direccion;
+	}
+	public void setDireccion(String direccion) {
+		this.direccion = direccion;
+	}
+	public int getNumCuentas() {
+		return numCuentas;
+	}
+	public void setNumCuentas(int numCuentas) {
+		this.numCuentas = numCuentas;
+	}
+	public Cuenta[] getCuentas() {
+		return cuentas;
+	}
+	public void setCuentas(Cuenta[] cuentas) {
+		this.cuentas = cuentas;
 	}
 
+	@Override
+	public String toString() {
+		return "CentroEjercicio\nnombreCentro = " + nombreCentro + "\ntelefono = " + telefono + "\ndireccion = " + direccion
+				+ "\nnumCuentas = " + numCuentas + "\ncuentas = " + Arrays.toString(cuentas);
+	}
+	
+	
+	
 }
