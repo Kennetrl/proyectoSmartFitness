@@ -1,106 +1,103 @@
 package dominio;
 
+import java.util.Arrays;
+
 /**
- * Clase ItemEjercicio para llevar un registro de los ejercicios hechos por los usuarios
- * 
  * @author  Rodney Andrade
  * @author  Marlon Argoti
  * @author  Vanessa Heredia
  * @author  Jonathan Planza
  * @author  Vinicio Matango
  * @author  Kennet Rodriguez
- * @version 1.0
  */
 public class ItemEjercicio {
 	
-	//atributos
-	private String ejercicio;
+	private int id;
+	private Ejercicio ejercicios[];
 	private int repeticion;
-	private String tipoEjercicio;
-	
-	/**
-	 * Constructor sin argumentos
-	 */
-	public ItemEjercicio() {	
-		ejercicio="abdominales";
-		repeticion = 2;
-		tipoEjercicio = "Anaerobico";
-		
+	private int numEjercicios;
+
+	public ItemEjercicio() {
+		id = 1;
+		ejercicios = new Ejercicio[1];
+		numEjercicios = 0;
+		repeticion = 1;
 	}
 	
-	/**
-	 * Constructor con argumentos
-	 * @param ejercicio nombre del ejercicio
-	 * @param repeticion cantidad de repeticiones del ejercicio
-	 * @param tipoEjercicio el tipo de ejercicio (anaerobico o aerobico)
-	 */
-	public ItemEjercicio(String ejercicio, int repeticion, String tipoEjercicio) {
-		this.ejercicio = ejercicio;
+	public ItemEjercicio(int id, Ejercicio ejercicios[], int repeticion, int numEjercicios) {
+		this.id=id;
+		this.ejercicios = ejercicios;
 		this.repeticion = repeticion;
-		this.tipoEjercicio = tipoEjercicio;
+		this.numEjercicios = numEjercicios;
 	}
-	
-	/**
-	 * Constructor con referencia a objeto
-	 * @param item objeto de tipo ItemEjercicio
-	 */
+
 	public ItemEjercicio(ItemEjercicio item) {
-		this.ejercicio = item.ejercicio;
+		this.id = item.id;
+		this.ejercicios = item.ejercicios;
 		this.repeticion = item.repeticion;
-		this.tipoEjercicio = item.tipoEjercicio;
-	}
-	
-	/**
-	 * Obtiene el nombre del ejercicio
-	 * @return ejercicio
-	 */
-	public String getEjercicio() {
-		return ejercicio;
+		this.numEjercicios = item.numEjercicios;
 	}
 
-	/**
-	 * Establece el nombre del ejercicio
-	 * @param ejercicio nombre del ejercicio
-	 */
-	public void setEjercicio(String ejercicio) {
-		this.ejercicio = ejercicio;
+	public int getId() {
+		return id;
 	}
 
-	/**
-	 * Obtiene la cantidad de repeticiones del ejercicio
-	 * @return repeticion
-	 */
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	public int getRepeticion() {
 		return repeticion;
 	}
 
-	/**
-	 * Establece la cantidad de repeticiones del ejercicio
-	 * @param repeticion cantidad de repeticiones del ejercicio
-	 */
 	public void setRepeticion(int repeticion) {
 		this.repeticion = repeticion;
 	}
 
-	/**
-	 * Obtiene el tipo de ejercicio
-	 * @return tipoEjercicio
-	 */
-	public String getTipoEjercicio() {
-		return tipoEjercicio;
+	public Ejercicio[] getEjercicios() {
+		return ejercicios;
 	}
 
-	/**
-	 * Establece el tipo de ejercicio
-	 * @param tipoEjercicio el tipo de ejercicio (anaerobico o aerobico)
-	 */
-	public void setTipoEjercicio(String tipoEjercicio) {
-		this.tipoEjercicio = tipoEjercicio;
+	public void setEjercicios(Ejercicio[] ejercicios) {
+		this.ejercicios = ejercicios;
+	}
+
+	public int getNumEjercicios() {
+		return numEjercicios;
+	}
+
+	public void setNumEjercicios(int numEjercicios) {
+		this.numEjercicios = numEjercicios;
 	}
 
 	@Override
 	public String toString() {
-		return "ItemEjercicio \nejercicio=" + ejercicio + "\nrepeticion=" + repeticion + "\ntipoEjercicio="
-				+ tipoEjercicio;
+		return "ItemEjercicio [id=" + id + ", ejercicios=" + Arrays.toString(ejercicios) + ", repeticion=" + repeticion
+				+ ", numEjercicios=" + numEjercicios + "]";
 	}
+
+	public void crearEjercicio(int id, String nombre, String tipoEjercicio) {
+		 if (numEjercicios == ejercicios.length) {
+	     Ejercicio[] aux = new Ejercicio[ejercicios.length + 1];
+	     System.arraycopy(ejercicios, 0, aux, 0, numEjercicios);
+	     ejercicios = aux;
+	     }
+	     int i = numEjercicios++;
+	     ejercicios[i] = new Ejercicio(id, nombre, tipoEjercicio);
+	 }
+
+	public String listarEjercicio() {
+		String lista = "";
+		System.out.println("Lista de Ejercicios");
+		for (Ejercicio ejercicio : ejercicios) {
+			if (ejercicio != null) {
+				lista += ejercicio + "\r\n";
+		    }
+		}
+		        return lista;
+	}
+	public Ejercicio consultarEjercicio(int posicion) {
+		return ejercicios[posicion];
+	}
+	
 }

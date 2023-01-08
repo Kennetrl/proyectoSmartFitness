@@ -9,7 +9,6 @@ package dominio;
  * @author Jonathan Planza
  * @author Vinicio Matango
  * @author Kennet Rodriguez
- * @version 1.0
  */
 public class Sugerencia {
 	

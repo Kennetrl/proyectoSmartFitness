@@ -1,4 +1,7 @@
 package dominio;
+
+import java.util.Arrays;
+
 /**
  * Esta clase representa un plan de entrenamiento, el cual contiene los elementos necesarios para llevar a cabo un entrenamiento. 
  * @author Rodney Andrade
@@ -7,162 +10,237 @@ package dominio;
  * @author Jonathan Planza
  * @author Vinicio Matango 
  * @author Kennet Rodriguez
- * @version 1.0
  */
 
 public class PlanEntrenamiento {
 	
-	/**
-	 * Id del plan de entrenamiento
-	 */
+	
 	private int id;
-	
-	/**
-	 * Nombre del plan de entrenamiento
-	 */
 	private String nombrePlanEntrenamiento;
-	
-	/**
-	 * Tiempo empleado para el entrenamiento
-	 */
 	private double tiempoEmpleado;
-	
-	/**
-	 * Repeticiones realizadas en el entrenamiento
-	 */
 	private int repeticion;
-	
-	/**
-	 * Nombre de la rutina
-	 */
 	private String nombreRutina;
+	private ItemEjercicio items[];
+	private int numItems;
+	private Entrenador entrenadores[];
+	private int numEntrenadores;
+	private ProgresoUsuario progresos[];
+	private int numProgresos;
 	
-	/**
-	 * Constructor por defecto de PlanEntrenamiento
-	 */
 	public PlanEntrenamiento() {
 		id = 1;
 		nombrePlanEntrenamiento = "Adelgazar";
 		tiempoEmpleado = 1;
 		repeticion = 1;
 		nombreRutina = "Mind & Body";
+		items = new ItemEjercicio[1];
+		numItems = 1;
+		entrenadores = new Entrenador[1];
+		numEntrenadores = 1;
+		progresos = new ProgresoUsuario[1];
+		numProgresos = 1;
 	}
-	
-	/**
-	 * Constructor con todos los atributos de PlanEntrenamiento
-	 * @param id Id del plan de entrenamiento
-	 * @param nombrePlanEntrenamiento Nombre del plan de entrenamiento
-	 * @param tiempoEmpleado Tiempo empleado para el entrenamiento
-	 * @param repeticion Repeticiones realizadas en el entrenamiento
-	 * @param nombreRutina Nombre de la rutina
-	 */
-	public PlanEntrenamiento(int id, String nombrePlanEntrenamiento, double tiempoEmpleado, int repeticion, String nombreRutina) {
+
+	public PlanEntrenamiento(int id, String nombrePlanEntrenamiento, double tiempoEmpleado, int repeticion, String nombreRutina, ItemEjercicio items[], int numItems, Entrenador entrenadores[], int numEntrenadores, ProgresoUsuario progresos[], int numProgresos) {
 		this.id = id;
 		this.nombrePlanEntrenamiento = nombrePlanEntrenamiento;
 		this.tiempoEmpleado = tiempoEmpleado;
 		this.repeticion = repeticion;
 		this.nombreRutina = nombreRutina;
+		this.items=items;
+		this.numItems=numItems;
+		this.entrenadores=entrenadores;
+		this.numEntrenadores=numEntrenadores;
+		this.progresos=progresos;
+		this.numProgresos=numProgresos;
 	}
 
-	/**
-	 * Constructor que crea una instancia de PlanEntrenamiento a partir de otro PlanEntrenamiento
-	 * @param plan Plan de entrenamiento
-	 */
 	public PlanEntrenamiento(PlanEntrenamiento plan) {
 		this.id = plan.id;
 		this.nombrePlanEntrenamiento = plan.nombrePlanEntrenamiento;
 		this.tiempoEmpleado = plan.tiempoEmpleado;
 		this.repeticion = plan.repeticion;
 		this.nombreRutina = plan.nombreRutina;
+		this.items = plan.items;
+		this.numItems = plan.numItems;
+		this.entrenadores = plan.entrenadores;
+		this.numEntrenadores = plan.numEntrenadores;
+		this.progresos = plan.progresos;
+		this.numProgresos = plan.numProgresos;
 	}
 	
-	/**
-	 * Obtiene el Id del plan de entrenamiento
-	 * @return Id del plan de entrenamiento
-	 */
 	public int getId() {
 		return id;
 	}
 
-	/**
-	 * Establece el Id del plan de entrenamiento
-	 * @param id Id del plan de entrenamiento
-	 */
 	public void setId(int id) {
 		this.id = id;
 	}
 
-	/**
-	 * Obtiene el nombre del plan de entrenamiento
-	 * @return Nombre del plan de entrenamiento
-	 */
 	public String getNombrePlanEntrenamiento() {
 		return nombrePlanEntrenamiento;
 	}
 
-	/**
-	 * Establece el nombre del plan de entrenamiento
-	 * @param nombrePlanEntrenamiento Nombre del plan de entrenamiento
-	 */
 	public void setNombrePlanEntrenamiento(String nombrePlanEntrenamiento) {
 		this.nombrePlanEntrenamiento = nombrePlanEntrenamiento;
 	}
 
-	/**
-	 * Obtiene el tiempo empleado para el entrenamiento
-	 * @return Tiempo empleado para el entrenamiento
-	 */
 	public double getTiempoEmpleado() {
 		return tiempoEmpleado;
 	}
 
-	/**
-	 * Establece el tiempo empleado para el entrenamiento
-	 * @param tiempoEmpleado Tiempo empleado para el entrenamiento
-	 */
 	public void setTiempoEmpleado(double tiempoEmpleado) {
 		this.tiempoEmpleado = tiempoEmpleado;
 	}
 
-	/**
-	 * Obtiene las repeticiones realizadas en el entrenamiento
-	 * @return Repeticiones realizadas en el entrenamiento
-	 */
 	public int getRepeticion() {
 		return repeticion;
 	}
 
-	/**
-	 * Establece las repeticiones realizadas en el entrenamiento
-	 * @param repeticion Repeticiones realizadas en el entrenamiento
-	 */
 	public void setRepeticion(int repeticion) {
 		this.repeticion = repeticion;
 	}
 
-	/**
-	 * Obtiene el nombre de la rutina
-	 * @return Nombre de la rutina
-	 */
 	public String getNombreRutina() {
 		return nombreRutina;
 	}
 
-	/**
-	 * Establece el nombre de la rutina
-	 * @param nombreRutina Nombre de la rutina
-	 */
 	public void setNombreRutina(String nombreRutina) {
 		this.nombreRutina = nombreRutina;
 	}
 
-	/**
-	 * Muestra la informacion del plan de entrenamiento
-	 * @return Informacion del plan de entrenamiento
-	 */
+	public ItemEjercicio[] getItems() {
+		return items;
+	}
+
+	public void setItems(ItemEjercicio[] items) {
+		this.items = items;
+	}
+
+	public int getNumItems() {
+		return numItems;
+	}
+
+	public void setNumItems(int numItems) {
+		this.numItems = numItems;
+	}
+
+	public Entrenador[] getEntrenadores() {
+		return entrenadores;
+	}
+
+	public void setEntrenadores(Entrenador[] entrenadores) {
+		this.entrenadores = entrenadores;
+	}
+
+	public int getNumEntrenadores() {
+		return numEntrenadores;
+	}
+
+	public void setNumEntrenadores(int numEntrenadores) {
+		this.numEntrenadores = numEntrenadores;
+	}
+
+	public ProgresoUsuario[] getProgresos() {
+		return progresos;
+	}
+
+	public void setProgresos(ProgresoUsuario[] progresos) {
+		this.progresos = progresos;
+	}
+
+	public int getNumProgresos() {
+		return numProgresos;
+	}
+
+	public void setNumProgresos(int numProgresos) {
+		this.numProgresos = numProgresos;
+	}
+
 	@Override
 	public String toString() {
-		return "Plan de Entrenamiento\nid=" + id + "\nnombrePlanEntrenamiento=" + nombrePlanEntrenamiento
-				+ "\ntiempoEmpleado=" + tiempoEmpleado + "\nrepeticion=" + repeticion + "\nnombreRutina=" + nombreRutina;
+		return "PlanEntrenamiento [id=" + id + ", nombrePlanEntrenamiento=" + nombrePlanEntrenamiento
+				+ ", tiempoEmpleado=" + tiempoEmpleado + ", repeticion=" + repeticion + ", nombreRutina=" + nombreRutina
+				+ ", items=" + Arrays.toString(items) + ", numItems=" + numItems + ", entrenadores="
+				+ Arrays.toString(entrenadores) + ", numEntrenadores=" + numEntrenadores + ", progresos="
+				+ Arrays.toString(progresos) + ", numProgresos=" + numProgresos + "]";
+	}
+	
+	 public void crearItemEjercicio(int id, Ejercicio[] ejercicios, int repeticion, int numEjercicios) {
+		 if (numItems == items.length) {
+	     ItemEjercicio[] aux = new ItemEjercicio[items.length + 1];
+	     System.arraycopy(items, 0, aux, 0, numItems);
+	     items = aux;
+	     }
+	     int i = numItems++;
+	     items[i] = new ItemEjercicio(id, ejercicios, repeticion, numEjercicios);
+	 }
+
+	public String listarItemsEjercicio() {
+		String lista = "";
+		System.out.println("Lista de los items ejercicios");
+		for (ItemEjercicio item : items) {
+			if (item != null) {
+				lista += item + "\r\n";
+		    }
+		}
+		        return lista;
+	}
+	public ItemEjercicio buscarEjercicio(int posicion) {
+		System.out.println("Ejercicio " + posicion + " a consultar: ");
+		return items[posicion];
+	}
+	
+	
+	//entrenador
+	public void crearEntrenador(int id, String nombre, String correo, String contrasenia, boolean certificadoProfesional) {
+		 if (numEntrenadores == entrenadores.length) {
+		 Entrenador[] aux = new Entrenador[entrenadores.length + 1];
+	     System.arraycopy(entrenadores, 0, aux, 0, numEntrenadores);
+	     entrenadores= aux;
+	     }
+	     int i = numEntrenadores++;
+	     entrenadores[i] = new Entrenador(id, nombre, correo, contrasenia, certificadoProfesional);
+	 }
+
+	public String listarEntrenadores() {
+		String lista = "";
+		System.out.println("Lista de los entrenadores");
+		for (Entrenador entrenador : entrenadores) {
+			if (entrenador != null) {
+				lista += entrenador + "\r\n";
+		    }
+		}
+		        return lista;
+	}
+	public Entrenador buscarEntrenadores(int posicion) {
+		System.out.println("Entrenador " + posicion + " a consultar: ");
+		return entrenadores[posicion];
+	}
+	
+	//Progresos
+	public void crearProgreso(int id, int fecha, double peso, boolean logrosAlcanzados) {
+		 if (numProgresos == progresos.length) {
+		 ProgresoUsuario[] aux = new ProgresoUsuario[progresos.length + 1];
+	     System.arraycopy(progresos, 0, aux, 0, numProgresos);
+	     progresos= aux;
+	     }
+	     int i = numProgresos++;
+	     progresos[i] = new ProgresoUsuario(id, fecha, peso, logrosAlcanzados);
+	 }
+
+	public String listarProgreso() {
+		String lista = "";
+		System.out.println("Lista de los logros alcanzados");
+		for (ProgresoUsuario logro : progresos) {
+			if (logro != null) {
+				lista += logro + "\r\n";
+		    }
+		}
+		        return lista;
+	}
+	public ProgresoUsuario buscarProgreso(int posicion) {
+		System.out.println("Logro " + posicion + " a buscar: ");
+		return progresos[posicion];
 	}
 }

@@ -36,10 +36,10 @@ public class MenuPrincipal {
 		System.out.println("Elija la opcion");
 		System.out.println("========================");
 		System.out.println("1 - INGRESAR AL SISTEMA");
-		System.out.println("2 - GESTIONAR ENFERMEDADES");
-		System.out.println("3 - GESTIONAR IMC");
-		System.out.println("4 - GESTIONAR PLAN ENTRENAMIENTO");
-		System.out.println("5 - GESTIONAR PROGRESOS");
+		System.out.println("2 - GESTIONAR PLAN ENTRENAMIENTO");
+		System.out.println("3 - GESTIONAR EJERCICIO");
+		System.out.println("4 - GESTIONAR USUARIO");
+		System.out.println("5 - GESTIONAR PROGRESO USUARIO");
 		System.out.println("6 - GESTIONAR SUGERENCIAS");
 		System.out.println("7 - SALIR");
 		System.out.println("========================");
@@ -51,7 +51,7 @@ public class MenuPrincipal {
 				MenuSistema.sesion();
 				break;
 			case 2:
-				System.out.println("Esta es la opcion 2");
+				MenuEnfermedades.enfermedadesOpciones();
 				break;
 			case 3:
 				System.out.println("Esta es la opcion 3");

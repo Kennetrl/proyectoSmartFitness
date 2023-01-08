@@ -8,10 +8,11 @@ public class TestEjercicio {
 		Ejercicio ejercicio = new Ejercicio();
 		ejercicio.setId(1);
 		ejercicio.setNombre("Sentadilla");
-
-		imprimir(ejercicio);
-	}
-	public static void imprimir(Ejercicio ejercicio) {	
+		ejercicio.setId(2);
+		ejercicio.setNombre("Abdominales");
+		
+		
+		
 		System.out.println(ejercicio);
 	}
 }
