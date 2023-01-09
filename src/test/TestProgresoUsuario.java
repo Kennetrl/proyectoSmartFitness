@@ -11,10 +11,6 @@ public class TestProgresoUsuario {
 		progresoUsuario.setLogrosAlcanzados(true);
 		progresoUsuario.setPeso(75.5);
 		
-		imprimir(progresoUsuario);
-	}
-	public static void imprimir(ProgresoUsuario progresoUsuario) {	
 		System.out.println(progresoUsuario);
-		
 	}
 }

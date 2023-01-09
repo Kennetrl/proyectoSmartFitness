@@ -84,10 +84,6 @@ public class MenuSistema {
 		usuario.setNombre(nombre);
 		usuario.setCorreo(correo);
 		usuario.setContrasenia(contrasenia);
-		usuario.setAltura(altura);
-		usuario.setEdad(edad);
-		usuario.setPeso(peso);
-		usuario.setTipoEnfermedad(tipoEnfermedad);
 		
 		System.out.println("Tu cuenta a sido creada");
 		
@@ -103,11 +99,7 @@ public class MenuSistema {
 			System.out.println("2 - Nombre");
 			System.out.println("3 - Correo");
 			System.out.println("4 - Contrasenia");
-			System.out.println("5 - Altura");
-			System.out.println("6 - Edad");
-			System.out.println("7 - Peso");
-			System.out.println("8 - Tipo de Enfermedad");
-			System.out.println("9 - Salir");
+			System.out.println("5 - Salir");
 			String opcion = leer.next();
 			correcto2 = Validaciones.validarOpcion9(opcion);
 			
@@ -138,30 +130,6 @@ public class MenuSistema {
 					System.out.println("Nueva contrasenia registrado");
 					break;
 				case "5":
-					System.out.println("Ingrese la nueva altura");
-					altura = leer.nextDouble();
-					usuario.setAltura(altura);
-					System.out.println("Nueva altura registrado");
-					break;
-				case "6":
-					System.out.println("Ingrese la nueva edad");
-					edad = leer.nextInt();
-					usuario.setEdad(edad);
-					System.out.println("Nueva edad registrada");
-					break;
-				case "7":
-					System.out.println("Ingrese el nuevo peso");
-					peso = leer.nextDouble();
-					usuario.setPeso(peso);
-					System.out.println("Nuevo peso registrado");
-					break;
-				case "8":
-					System.out.println("Ingrese el nuevo Tipo de Enfermedad");
-					tipoEnfermedad = leer.next();
-					usuario.setTipoEnfermedad(tipoEnfermedad);
-					System.out.println("Nuevo tipo de enfermedad registrado");
-					break;
-				case "9":
 					System.out.println("Regresando");
 					correcto = true;
 					break;

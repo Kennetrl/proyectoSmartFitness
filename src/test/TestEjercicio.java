@@ -10,9 +10,7 @@ public class TestEjercicio {
 		ejercicio.setNombre("Sentadilla");
 		ejercicio.setId(2);
 		ejercicio.setNombre("Abdominales");
-		
-		
-		
+
 		System.out.println(ejercicio);
 	}
 }

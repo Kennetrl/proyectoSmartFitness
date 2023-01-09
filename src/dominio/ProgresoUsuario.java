@@ -69,7 +69,7 @@ public class ProgresoUsuario {
 
 	@Override
 	public String toString() {
-		return "ProgresoUsuario\nid = " + id + "\nlogrosAlcanzados = " + logrosAlcanzados + "\nfecha = " + fecha + " dias" + "\npeso = "
+		return "ProgresoUsuario [id = " + id + ", logrosAlcanzados = " + logrosAlcanzados + " fecha = " + fecha + " dias, " + "peso = "
 				+ peso + " kg.";
 	}
 	

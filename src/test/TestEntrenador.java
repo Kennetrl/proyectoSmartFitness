@@ -12,9 +12,6 @@ public class TestEntrenador {
 		entrenador.setContrasenia("123456");
 		entrenador.setCertificadoProfesional(true);
 		
-		imprimir(entrenador);
-	}
-	public static void imprimir(Entrenador entrenador) {	
 		System.out.println(entrenador);
 	}
 }

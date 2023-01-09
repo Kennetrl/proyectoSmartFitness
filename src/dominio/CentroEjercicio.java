@@ -1,6 +1,7 @@
 package dominio;
 import java.util.Arrays;
 	/** 
+	* Clase principal del programa
 	* @author Rodney Andrade
 	* @author Marlon Argoti
 	* @author Vanessa Heredia
@@ -13,8 +14,8 @@ public class CentroEjercicio {
 	private String nombreCentro;
 	private String telefono;
 	private String direccion;
-	private Cuenta cuentas[];
-	private int numCuentas;
+	private Usuario usuarios[];
+	private int numUsuarios;
 	private Ejercicio ejercicios[];
 	private int numEjercicios;
 
@@ -22,28 +23,28 @@ public class CentroEjercicio {
 		this.nombreCentro="Smart Fitness";
 		this.telefono="+593 99 999 9999";
 		this.direccion="Quito, Ecuador";
-		this.cuentas = new Cuenta[3];
-		this.numCuentas=1;
+		this.usuarios = new Usuario[3];
+		this.numUsuarios=1;
 		this.ejercicios= new Ejercicio[3];
 		this.numEjercicios=1;
 	}
 	
-	public CentroEjercicio(String nombreCentro, String telefono, String direccion, Cuenta cuentas[], int numCuentas, Ejercicio ejercicios[], int numEjercicios) {
+	public CentroEjercicio(String nombreCentro, String telefono, String direccion, Usuario[] usuarios, int numUsuarios, Ejercicio ejercicios[], int numEjercicios) {
 		this.nombreCentro = nombreCentro;
 		this.telefono=telefono;
 		this.direccion=direccion;
-		this.cuentas = cuentas;
-		this.numCuentas=numCuentas;
+		this.usuarios = usuarios;
+		this.numUsuarios=numUsuarios;
 		this.ejercicios=ejercicios;
 		this.numEjercicios=numEjercicios;
 	}
 
 	public CentroEjercicio(CentroEjercicio centro) {
-	this.nombreCentro = centro.nombreCentro;
-	this.telefono = centro.telefono;
-	this.direccion = centro.direccion;
-	this.numCuentas = centro.numCuentas;
-	this.cuentas = centro.cuentas;
+		this.nombreCentro = centro.nombreCentro;
+		this.telefono = centro.telefono;
+		this.direccion = centro.direccion;
+		this.numUsuarios = centro.numUsuarios;
+		this.usuarios = centro.usuarios;
 	}
 	
 	public String getNombreCentro() {
@@ -64,17 +65,17 @@ public class CentroEjercicio {
 	public void setDireccion(String direccion) {
 		this.direccion = direccion;
 	}
-	public int getNumCuentas() {
-		return numCuentas;
+	public int getNumUsuarios() {
+		return numUsuarios;
 	}
-	public void setNumCuentas(int numCuentas) {
-		this.numCuentas = numCuentas;
+	public void setNumUsuarios(int numUsuarios) {
+		this.numUsuarios = numUsuarios;
 	}
-	public Cuenta[] getCuentas() {
-		return cuentas;
+	public Usuario[] getUsuarios() {
+		return usuarios;
 	}
-	public void setCuentas(Cuenta[] cuentas) {
-		this.cuentas = cuentas;
+	public void setUsuarios(Usuario[] usuarios) {
+		this.usuarios = usuarios;
 	}
 	
 	public Ejercicio[] getEjercicios() {
@@ -95,34 +96,44 @@ public class CentroEjercicio {
 
 	@Override
 	public String toString() {
-		return "CentroEjercicio\nnombreCentro=" + nombreCentro + "\ntelefono=" + telefono + "\ndireccion=" + direccion
-				+ "\ncuentas=" + Arrays.toString(cuentas) + "\nnumCuentas=" + numCuentas + "\nejercicios="
-				+ Arrays.toString(ejercicios) + "\nnumEjercicios=" + numEjercicios + "\n";
+		return "CentroEjercicio [nombreCentro=" + nombreCentro + ", telefono=" + telefono + ", direccion=" + direccion
+				+ ", usuarios=" + Arrays.toString(usuarios) + ", numUsuarios=" + numUsuarios + ", ejercicios="
+				+ Arrays.toString(ejercicios) + ", numEjercicios=" + numEjercicios + "]";
 	}
 
-	public void crearCuenta(int id, String nombre, String correo, String contrasenia) {
-        if (numCuentas == cuentas.length) {
-            Cuenta[] aux = new Cuenta[cuentas.length + 1];
-            System.arraycopy(cuentas, 0, aux, 0, numCuentas);
+	public void crearUsuario(int id, String nombre, String correo, String contrasenia, Cuenta cuentas[], int numCuentas) {
+        if (numUsuarios == usuarios.length) {
+            Usuario[] aux = new Usuario[usuarios.length + 1];
+            System.arraycopy(usuarios, 0, aux, 0, numUsuarios);
             
-            cuentas = aux;
+            usuarios = aux;
         }
-        int i = numCuentas++;
-        cuentas[i] = new Cuenta(id, nombre, correo, contrasenia);
+        int i = numUsuarios++;
+        usuarios[i] = new Usuario(id, nombre, correo, contrasenia, cuentas, numCuentas);
     }
 
-	public String listarCuenta() {
+	public String listarUsuario() {
 	        String lista = "";
-	        for (Cuenta cuentas : cuentas) {
-	            if (cuentas != null) {
-	                lista += cuentas + "\r\n";
+	        for (Usuario usuario : usuarios) {
+	            if (usuario != null) {
+	                lista += usuario + "\r\n";
 	            }
 	        }
 	        return lista;
 	   }
-	 public Cuenta buscarCuenta(int posicion) {
-	        return cuentas[posicion];
+	 public Usuario buscarUsuario(int posicion) {
+	        return usuarios[posicion];
 	    }
+	 
+	 public void editarUsuario(int posicion, int id, String nombre, String correo, String contrasenia, Cuenta cuentas[], int numCuentas) {
+		 System.out.println("El usuario N"+ posicion + " ha sido editado");
+		 usuarios[posicion] = new Usuario(id, nombre, correo, contrasenia, cuentas, numCuentas);
+	 }
+	 
+	 public void eliminarUsuario(int posicion) {
+		 System.out.println("El usuario N"+ posicion + " ha sido eliminado");
+		 usuarios[posicion]=null;
+	 }
 	 
 	 public void crearEjercicio(int id, String nombre, String tipoEjercicio) {
 		 if (numEjercicios == ejercicios.length) {
@@ -144,7 +155,17 @@ public class CentroEjercicio {
 		        return lista;
 	}
 	public Ejercicio buscarEjercicio(int posicion) {
+		System.out.println("Ejercicio N"+ posicion + " a encontrar");
 		return ejercicios[posicion];
 	}
+	public void editarEjercicio(int posicion, int id, String nombre, String tipoEjercicio) {
+		System.out.println("El ejercicio N"+ posicion + " ha sido editada");
+		 ejercicios[posicion] = new Ejercicio(id, nombre, tipoEjercicio);
+	 }
+	 
+	 public void eliminarEjercicio(int posicion) {
+		 System.out.println("El ejercicio N"+ posicion + " ha sido eliminada");
+		 ejercicios[posicion]=null;
+	 }
 	
 }

@@ -13,8 +13,7 @@ import java.util.Arrays;
  */
 
 public class PlanEntrenamiento {
-	
-	
+
 	private int id;
 	private String nombrePlanEntrenamiento;
 	private double tiempoEmpleado;
@@ -159,11 +158,11 @@ public class PlanEntrenamiento {
 
 	@Override
 	public String toString() {
-		return "PlanEntrenamiento [id=" + id + ", nombrePlanEntrenamiento=" + nombrePlanEntrenamiento
-				+ ", tiempoEmpleado=" + tiempoEmpleado + ", repeticion=" + repeticion + ", nombreRutina=" + nombreRutina
-				+ ", items=" + Arrays.toString(items) + ", numItems=" + numItems + ", entrenadores="
-				+ Arrays.toString(entrenadores) + ", numEntrenadores=" + numEntrenadores + ", progresos="
-				+ Arrays.toString(progresos) + ", numProgresos=" + numProgresos + "]";
+		return "PlanEntrenamiento [id = " + id + ", nombrePlanEntrenamiento = " + nombrePlanEntrenamiento
+				+ ", tiempoEmpleado = " + tiempoEmpleado + " minutos" +", repeticion = " + repeticion + " veces" +", nombreRutina = " + nombreRutina
+				+ ", items = " + Arrays.toString(items) + ", numItems = " + numItems + ", entrenadores = "
+				+ Arrays.toString(entrenadores) + ", numEntrenadores = " + numEntrenadores + ", progresos = "
+				+ Arrays.toString(progresos) + ", numProgresos = " + numProgresos + "]";
 	}
 	
 	 public void crearItemEjercicio(int id, Ejercicio[] ejercicios, int repeticion, int numEjercicios) {
@@ -186,10 +185,19 @@ public class PlanEntrenamiento {
 		}
 		        return lista;
 	}
-	public ItemEjercicio buscarEjercicio(int posicion) {
+	public ItemEjercicio buscarItemsEjercicio(int posicion) {
 		System.out.println("Ejercicio " + posicion + " a consultar: ");
 		return items[posicion];
 	}
+	public void editarItemsEjercicio(int posicion, int id, Ejercicio[] ejercicios, int repeticion, int numEjercicios) {
+		System.out.println("El item del ejercicio N"+ posicion + " ha sido editada");
+		 items[posicion] = new ItemEjercicio(id, ejercicios, repeticion, numEjercicios);
+	 }
+	 
+	 public void eliminarItemsEjercicio(int posicion) {
+		 System.out.println("El item del ejercicio N"+ posicion + " ha sido eliminada");
+		 items[posicion]=null;
+	 }
 	
 	
 	//entrenador
@@ -217,6 +225,15 @@ public class PlanEntrenamiento {
 		System.out.println("Entrenador " + posicion + " a consultar: ");
 		return entrenadores[posicion];
 	}
+	public void editarEntrenadores(int posicion, int id, String nombre, String correo, String contrasenia, boolean certificadoProfesional) {
+		System.out.println("El entrenador N"+ posicion + " ha sido editado");
+		entrenadores[posicion] = new Entrenador(id, nombre, correo, contrasenia, certificadoProfesional);
+	 }
+	 
+	 public void eliminarEntrenadores(int posicion) {
+		 System.out.println("El entrenador N"+ posicion + " ha sido eliminada");
+		 entrenadores[posicion]=null;
+	 }
 	
 	//Progresos
 	public void crearProgreso(int id, int fecha, double peso, boolean logrosAlcanzados) {
@@ -243,4 +260,13 @@ public class PlanEntrenamiento {
 		System.out.println("Logro " + posicion + " a buscar: ");
 		return progresos[posicion];
 	}
+	public void editarProgreso(int posicion, int id, int fecha, double peso, boolean logrosAlcanzados) {
+		System.out.println("El progreso N"+ posicion + " ha sido editado");
+		progresos[posicion] = new ProgresoUsuario(id, fecha, peso, logrosAlcanzados);
+	 }
+	 
+	 public void eliminarProgreso(int posicion) {
+		 System.out.println("El progreso N"+ posicion + " ha sido eliminado");
+		 progresos[posicion]=null;
+	 }
 }

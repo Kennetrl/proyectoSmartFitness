@@ -8,14 +8,17 @@ package dominio;
  * @author  Kennet Rodriguez
  */
 public class Entrenador extends Cuenta{
-	
+	private int id;
+	private String nombre;
+	private String correo;
+	private String contrasenia;
 	private boolean certificadoProfesional;
 	
 	public Entrenador() {
-		super.id = 1;
-		super.nombre = "";
-		super.correo = "";
-		super.contrasenia = "";
+		id = 1;
+		nombre = "";
+		correo = "";
+		contrasenia = "";
 		certificadoProfesional = false;
 	}
 
@@ -43,13 +46,44 @@ public class Entrenador extends Cuenta{
 		this.certificadoProfesional = certificadoProfesional;
 	}
 
-	@Override
-	public String toString() {
-		return "Entrenador [id=" + id + ", nombre=" + nombre
-				+ ", correo=" + correo + ", contrasenia=" + contrasenia + ", certificadoProfesional=" + certificadoProfesional+ "]";
+	public int getId() {
+		return id;
 	}
 
-	
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getCorreo() {
+		return correo;
+	}
+
+	public void setCorreo(String correo) {
+		this.correo = correo;
+	}
+
+	public String getContrasenia() {
+		return contrasenia;
+	}
+
+	public void setContrasenia(String contrasenia) {
+		this.contrasenia = contrasenia;
+	}
+
+	@Override
+	public String toString() {
+		return "Entrenador [id = " + id + ", nombre = " + nombre + ", correo = " + correo + ", contrasenia = " + contrasenia
+				+ ", certificadoProfesional = " + certificadoProfesional + "]";
+	}
+
 	
 	
 }

@@ -10,5 +10,14 @@ public class TestItemEjercicio {
 	itemEjercicio.crearEjercicio(3, "Levantar Pesas", "Anaerobico");
 	itemEjercicio.crearEjercicio(4, "Flexiones", "Anaerobico");
 	System.out.println(itemEjercicio.listarEjercicio());
+	
+	System.out.println(itemEjercicio.buscarEjercicio(3));
+	
+	System.out.println(itemEjercicio.listarEjercicio());
+	itemEjercicio.editarEjercicio(2, 2, "Trote", "Aerobico");
+	
+	System.out.println(itemEjercicio.listarEjercicio());
+	itemEjercicio.eliminarEjercicio(4);;
+	System.out.println(itemEjercicio.listarEjercicio());
 	}
 }

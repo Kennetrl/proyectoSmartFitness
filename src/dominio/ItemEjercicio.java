@@ -20,7 +20,7 @@ public class ItemEjercicio {
 	public ItemEjercicio() {
 		id = 1;
 		ejercicios = new Ejercicio[1];
-		numEjercicios = 0;
+		numEjercicios = 1;
 		repeticion = 1;
 	}
 	
@@ -96,8 +96,18 @@ public class ItemEjercicio {
 		}
 		        return lista;
 	}
-	public Ejercicio consultarEjercicio(int posicion) {
+	public Ejercicio buscarEjercicio(int posicion) {
+		System.out.println("Ejercicio N"+ posicion + " a encontrar");
 		return ejercicios[posicion];
 	}
+	public void editarEjercicio(int posicion, int id, String nombre, String tipoEjercicio) {
+		System.out.println("El ejercicio N"+ posicion + " ha sido editada");
+		 ejercicios[posicion] = new Ejercicio(id, nombre, tipoEjercicio);
+	 }
+	 
+	 public void eliminarEjercicio(int posicion) {
+		 System.out.println("El ejercicio N"+ posicion + " ha sido eliminada");
+		 ejercicios[posicion]=null;
+	 }
 	
 }

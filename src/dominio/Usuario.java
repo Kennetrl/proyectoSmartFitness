@@ -3,7 +3,8 @@ package dominio;
 import java.util.Arrays;
 
 /**
- * Clase Usuario que hereda de la clase Cuenta
+ * Esta clase permite crear objetos tipo Cuenta con los atributos id, nombre, correo y contraseña.
+ * 
  * @author Rodney Andrade
  * @author Marlon Argoti
  * @author Vanessa Heredia
@@ -11,183 +12,130 @@ import java.util.Arrays;
  * @author Vinicio Matango
  * @author Kennet Rodriguez
  */
-public class Usuario extends Cuenta{
+public class Usuario {
 	
-	private String tipoEnfermedad;
-	private int edad;
-	private double peso;
-	private double altura;
-	private Sugerencia sugerencias[];
-	private int numSugerencias;
-	private PlanEntrenamiento planes[];
-	private int numPlanes;
+	//atributos
+	private int id;
+	private String nombre;
+	private String correo;
+	private String contrasenia;
+	private Cuenta cuentas[];
+	private int numCuentas;
+	
 
-	public Usuario() {
-		super.id = 1;
-		super.nombre = "";
-		super.correo = "";
-		super.contrasenia = "";
-		tipoEnfermedad="Ninguna";
-		edad=19;
-		peso=80.5;
-		altura=1.70;
-		sugerencias = new Sugerencia[2];
-		numSugerencias = 1;
-		planes = new PlanEntrenamiento[5];
-		numPlanes = 1;
+	public Usuario(){
+		id=1;
+		nombre = "Juan";
+		correo = "juan@hotmail.com";
+		contrasenia = "juanito123";
+		cuentas = new Cuenta[1];
+		numCuentas = 1;
+	}
+	
+	public Usuario(int id, String nombre, String correo, String contrasenia, Cuenta cuentas[], int numCuentas) {
+		this.id=id;
+		this.nombre=nombre;
+		this.correo=correo;
+		this.contrasenia=contrasenia;
+		this.cuentas=cuentas;
+		this.numCuentas=numCuentas;
 	}
 
-	public Usuario(int id, String nombre, String correo, String contrasenia, String tipoEnfermedad, int edad, double peso, double altura, Sugerencia sugerencias[], int numSugerencias, PlanEntrenamiento planes[], int numPlanes) {
-		this.id = id;
-		this.nombre = nombre;
-		this.correo = correo;
-		this.contrasenia = contrasenia;
-		this.tipoEnfermedad=tipoEnfermedad;
-		this.edad=edad;
-		this.peso=peso;
-		this.altura=altura;
-		this.sugerencias=sugerencias;
-		this.numSugerencias=numSugerencias;
-		this.planes=planes;
-		this.numPlanes=numPlanes;
-	}
 	public Usuario(Usuario usuario) {
-		this.id = usuario.id;
-		this.nombre = usuario.nombre;
-		this.correo = usuario.correo;
-		this.contrasenia = usuario.contrasenia;
-		this.tipoEnfermedad=usuario.tipoEnfermedad;
-		this.edad=usuario.edad;
-		this.peso=usuario.peso;
-		this.altura=usuario.altura;
-		this.sugerencias=usuario.sugerencias;
-		this.numSugerencias=usuario.numSugerencias;
-		this.planes=usuario.planes;
-		this.numPlanes=usuario.numPlanes;
+		this.id=usuario.id;
+		this.nombre=usuario.nombre;
+		this.correo=usuario.correo;
+		this.contrasenia=usuario.contrasenia;
+		this.cuentas=usuario.cuentas;
+		this.numCuentas=usuario.numCuentas;
 	}
 
-	public String getTipoEnfermedad() {
-		return tipoEnfermedad;
-	}
-
-	public void setTipoEnfermedad(String tipoEnfermedad) {
-		this.tipoEnfermedad = tipoEnfermedad;
+	public int getId() {
+		return id;
 	}
 	
-	public int getEdad() {
-		return edad;
+	public void setId(int id) {
+		this.id = id;
 	}
 	
-	public void setEdad(int edad) {
-		this.edad = edad;
+	public String getNombre() {
+		return nombre;
 	}
 
-	public double getPeso() {
-		return peso;
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getCorreo() {
+		return correo;
 	}
 	
-	public void setPeso(double peso) {
-		this.peso = peso;
-	}
-
-	public double getAltura() {
-		return altura;
-	}
-
-	public void setAltura(double altura) {
-		this.altura = altura;
+	public void setCorreo(String correo) {
+		this.correo = correo;
 	}
 	
-	public Sugerencia[] getSugerencias() {
-		return sugerencias;
+	public String getContrasenia() {
+		return contrasenia;
 	}
-
-	public void setSugerencias(Sugerencia[] sugerencias) {
-		this.sugerencias = sugerencias;
-	}
-
-	public int getNumSugerencias() {
-		return numSugerencias;
-	}
-
-	public void setNumSugerencias(int numSugerencias) {
-		this.numSugerencias = numSugerencias;
-	}
-
-	public PlanEntrenamiento[] getPlanes() {
-		return planes;
-	}
-
-	public void setPlanes(PlanEntrenamiento[] planes) {
-		this.planes = planes;
-	}
-
-	public int getNumPlanes() {
-		return numPlanes;
-	}
-
-	public void setNumPlanes(int numPlanes) {
-		this.numPlanes = numPlanes;
-	}
-
 	
-	
+	public void setContrasenia(String contrasenia) {
+		this.contrasenia = contrasenia;
+	}
+
+	public Cuenta[] getCuentas() {
+		return cuentas;
+	}
+
+	public void setCuentas(Cuenta[] cuentas) {
+		this.cuentas = cuentas;
+	}
+
+	public int getNumCuentas() {
+		return numCuentas;
+	}
+
+	public void setNumCuentas(int numCuentas) {
+		this.numCuentas = numCuentas;
+	}
+
 	@Override
 	public String toString() {
-		return "Usuario [tipoEnfermedad=" + tipoEnfermedad + ", edad=" + edad + ", peso=" + peso + ", altura=" + altura
-				+ ", sugerencias=" + Arrays.toString(sugerencias) + ", numSugerencias=" + numSugerencias + ", planes="
-				+ Arrays.toString(planes) + ", numPlanes=" + numPlanes + ", id=" + id + ", nombre=" + nombre
-				+ ", correo=" + correo + ", contrasenia=" + contrasenia + "]";
+		return "Usuario [id=" + id + ", nombre=" + nombre + ", correo=" + correo + ", contrasenia=" + contrasenia
+				+ ", cuentas=" + Arrays.toString(cuentas) + ", numCuentas=" + numCuentas + "]";
 	}
 
-	public void crearPlanes(int id, String nombrePlanEntrenamiento, double tiempoEmpleado, int repeticion, String nombreRutina, ItemEjercicio items[], int numItems, Entrenador entrenadores[], int numEntrenadores, ProgresoUsuario progresos[], int numProgresos) {
-		if (numPlanes == planes.length) {
-	        PlanEntrenamiento[] aux = new PlanEntrenamiento[planes.length + 1];
-	        System.arraycopy(planes, 0, aux, 0, numPlanes);
-	          planes = aux;
+	public void crearCuentas(int id, String tipoEnfermedad, int edad, double peso, double altura, Sugerencia sugerencias[], int numSugerencia, PlanEntrenamiento planes[], int numPlanes) {
+		if (numCuentas == cuentas.length) {
+	        Cuenta[] aux = new Cuenta[cuentas.length + 1];
+	        System.arraycopy(cuentas, 0, aux, 0, numCuentas);
+	        	cuentas = aux;
 	        }
-	        int i = numPlanes++;
-	        planes[i] = new PlanEntrenamiento(id, nombrePlanEntrenamiento, tiempoEmpleado, repeticion, nombreRutina, items, numItems, entrenadores, numEntrenadores, progresos, numProgresos);
+	        int i = numCuentas++;
+	        cuentas[i] = new Cuenta(id, tipoEnfermedad, edad, peso, altura, sugerencias, numSugerencia, planes, numPlanes);
 	    }
 
-	public String listarPlanes() {
+	public String listarCuenta() {
 		String lista = "";
-		System.out.println("Lista de los Planes de Entrenamiento");
-		for (PlanEntrenamiento plan : planes) {
-			if (plan != null) {
-		    	 lista += plan + "\r\n";
+		System.out.println("Lista de cuentas");
+		for (Cuenta cuenta : cuentas) {
+			if (cuenta != null) {
+		    	 lista += cuenta + "\r\n";
 		        }
 			}
 		return lista;
 	}
-	public PlanEntrenamiento consultarPlanes(int posicion) {
-		System.out.println("Plan N" + posicion + " a consultar: ");
-			return planes[posicion];
+	public Cuenta consultarCuentas(int posicion) {
+		System.out.println("Cuenta N" + posicion + " a consultar: ");
+			return cuentas[posicion];
 	}
+	public void editarCuentas(int posicion, int id, String tipoEnfermedad, int edad, double peso, double altura, Sugerencia sugerencias[], int numSugerencia, PlanEntrenamiento planes[], int numPlanes) {
+		System.out.println("La cuenta N"+ posicion + " ha sido editada");
+		cuentas[posicion] = new Cuenta(id, tipoEnfermedad, edad, peso, altura, sugerencias, numSugerencia, planes, numPlanes);
+	 }
+	 
+	 public void eliminarCuentas(int posicion) {
+		 System.out.println("La cuenta N"+ posicion + " ha sido eliminada");
+		 cuentas[posicion]=null;
+	 }
 
-	public void crearSugerencia(int id, String comentario) {
-		if (numSugerencias == sugerencias.length) {
-			Sugerencia[] aux = new Sugerencia[sugerencias.length + 1];
-			System.arraycopy(sugerencias, 0, aux, 0, numSugerencias);
-			sugerencias = aux;
-		}
-	int i = numSugerencias++;
-	sugerencias[i] = new Sugerencia(id, comentario);
-	}
-
-	public String listarSugerencia() {
-		String lista = "";
-		for (Sugerencia sugerencia : sugerencias) {
-			if (sugerencia != null) {
-				lista += sugerencia + "\r\n";
-			}
-		}
-		return lista;
-	}
-	public Sugerencia consultarSugerencia(int posicion) {
-		return sugerencias[posicion];
-	}
-			
-
-	
 }
