@@ -4,8 +4,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Validaciones {
-	public static boolean validarOpcion4(String opcion){
-		String regex = "^[1-4]$";
+	public static boolean validarOpcion6(String opcion){
+		String regex = "^[1-6]$";
 		Pattern pat = Pattern.compile(regex);
 		Matcher mat = pat.matcher(opcion);
 		if(mat.find()) {

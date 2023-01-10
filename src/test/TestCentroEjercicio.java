@@ -16,14 +16,14 @@ public class TestCentroEjercicio {
 		centro.crearUsuario(2, "Andres", "andresvini@hotmail.com", "vinicio123", null, 1);
 		centro.crearUsuario(3, "Marlon", "argoti@hotmail.com", "argoti@123", null, 1);
 		
-		System.out.println("lista de las cuentas \r\n"+ centro.listarUsuario());
+		System.out.println("lista de usuarios \r\n"+ centro.listarUsuario());
 		System.out.println("Cuenta a buscar: \r\n" + centro.buscarUsuario(3)+ "\n");
 		
 		centro.editarUsuario(1, 1, "Raul", "raul@hotmail.com", "321", null, 1);
-		System.out.println("lista de las cuentas \r\n"+ centro.listarUsuario());
+		System.out.println("lista de las usuarios \r\n"+ centro.listarUsuario());
 		
 		centro.eliminarUsuario(3);
-		System.out.println("lista de las cuentas \r\n"+ centro.listarUsuario());
+		System.out.println("lista de las usuarios \r\n"+ centro.listarUsuario());
 		
 		centro.crearEjercicio(1, "Caminata", "Aerobico");
 		centro.crearEjercicio(2, "Baile", "Aerobico");

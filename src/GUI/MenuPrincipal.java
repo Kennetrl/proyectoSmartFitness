@@ -33,44 +33,53 @@ public class MenuPrincipal {
 	}
 
 	public static void menu(Scanner leer,int opcion,boolean correcto) {
-		System.out.println("Elija la opcion");
-		System.out.println("========================");
-		System.out.println("1 - INGRESAR AL SISTEMA");
-		System.out.println("2 - GESTIONAR PLAN ENTRENAMIENTO");
-		System.out.println("3 - GESTIONAR EJERCICIO");
-		System.out.println("4 - GESTIONAR USUARIO");
-		System.out.println("5 - GESTIONAR PROGRESO USUARIO");
-		System.out.println("6 - GESTIONAR SUGERENCIAS");
-		System.out.println("7 - SALIR");
-		System.out.println("========================");
-			
-		opcion = leer.nextInt();
-		correcto = false;
-			switch(opcion){
-			case 1:
-				MenuSistema.sesion();
-				break;
-			case 2:
-				MenuEnfermedades.enfermedadesOpciones();
-				break;
-			case 3:
-				System.out.println("Esta es la opcion 3");
-				break;
-			case 4:
-				System.out.println("Esta es la opción 4");
-				break;
-			case 5:
-				System.out.println("Esta es la opción 5");
-				break;
-			case 6:
-				System.out.println("Esta es la opción 6");
-			case 7:
-				System.out.println("Gracias por usar el programa <3");
-				break;
-			default:
-				System.out.println("Digite bien la opcion");
-				menu(leer, opcion, correcto);
-				correcto = false;
-			}
+		boolean correcto1=true;
+		while(correcto1) {
+			System.out.println("Elija la opcion");
+			System.out.println("========================");
+			System.out.println("1 - INGRESAR AL SISTEMA");
+			System.out.println("2 - GESTIONAR PLAN ENTRENAMIENTO");
+			System.out.println("3 - GESTIONAR EJERCICIO");
+			System.out.println("4 - GESTIONAR CUENTA");
+			System.out.println("5 - GESTIONAR PROGRESO USUARIO");
+			System.out.println("6 - GESTIONAR SUGERENCIAS");
+			System.out.println("7 - SALIR");
+			System.out.println("========================");
+				
+			opcion = leer.nextInt();
+				switch(opcion){
+				case 1:
+					MenuSistema.sesion();
+					correcto1=true;
+					break;
+				case 2:
+					MenuPlanEntrenamiento.planEntrenamiento();
+					correcto1=true;
+					break;
+				case 3:
+					MenuEjercicio.ejerciciosOpciones();
+					correcto1=true;
+					break;
+				case 4:
+					MenuCuenta.cuentaOpciones();
+					correcto1=true;
+					break;
+				case 5:
+					MenuProgresos.progresosOpciones();
+					correcto1=true;
+					break;
+				case 6:
+					MenuSugerencias.sugerenciasOpciones();
+					correcto1=true;
+					break;
+				case 7:
+					System.out.println("Gracias por usar el programa <3");
+					correcto1=false;
+					break;
+				default:
+					System.out.println("Digite bien la opcion");
+					correcto1=true;
+				}
+		}
 	}
 }

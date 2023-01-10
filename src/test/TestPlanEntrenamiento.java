@@ -1,5 +1,6 @@
 package test;
 
+import dominio.Ejercicio;
 import dominio.PlanEntrenamiento;
 
 public class TestPlanEntrenamiento {
