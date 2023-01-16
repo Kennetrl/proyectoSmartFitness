@@ -1,15 +1,14 @@
 package dominio;
 import java.util.Arrays;
-	/** 
-	* Clase principal del programa
-	* @author Rodney Andrade
-	* @author Marlon Argoti
-	* @author Vanessa Heredia
-	* @author Jonathan Planza
-	* @author Vinicio Matango
-	* @author Kennet Rodriguez
-	*/
-	
+/**
+*Esta clase representa el Centro de Ejercicio
+*@author Rodney Andrade
+*@author Marlon Argoti
+*@author Vanessa Heredia
+*@author Jonathan Planza
+*@author Vinicio Matango
+*@author Kennet Rodriguez
+*/
 public class CentroEjercicio {
 	private String nombreCentro;
 	private String telefono;
@@ -131,9 +130,27 @@ public class CentroEjercicio {
 	 }
 	 
 	 public void eliminarUsuario(int posicion) {
-		 System.out.println("El usuario N"+ posicion + " ha sido eliminado");
-		 usuarios[posicion]=null;
-	 }
+		 Usuario aux[] = new Usuario[usuarios.length - 1];
+		 if (posicion > 0) {
+		 System.arraycopy(usuarios, 0, aux, 0, posicion);
+		 }
+		 if (aux.length > posicion) {
+		 System.arraycopy(usuarios, posicion + 1, aux, posicion, aux.length - posicion);
+		 }
+		 usuarios = new Usuario[aux.length];
+		 System.arraycopy(aux, 0, usuarios, 0, aux.length);
+		 numUsuarios--;
+		 }
+
+	 public void borrarUsuario(int posicion) {
+		 if (numUsuarios >= usuarios.length) {
+			for (int i = 0; i < usuarios.length; i++) {
+				if (i == posicion) {
+					eliminarUsuario(i);
+				}
+			}
+		}
+	}
 	 
 	 public void crearEjercicio(int id, String nombre, String tipoEjercicio) {
 		 if (numEjercicios == ejercicios.length) {
@@ -163,9 +180,28 @@ public class CentroEjercicio {
 		 ejercicios[posicion] = new Ejercicio(id, nombre, tipoEjercicio);
 	 }
 	 
+	 
 	 public void eliminarEjercicio(int posicion) {
-		 System.out.println("El ejercicio N"+ posicion + " ha sido eliminada");
-		 ejercicios[posicion]=null;
-	 }
+		 Ejercicio aux[] = new Ejercicio[ejercicios.length - 1];
+		 if (posicion > 0) {
+		 System.arraycopy(ejercicios, 0, aux, 0, posicion);
+		 }
+		 if (aux.length > posicion) {
+		 System.arraycopy(ejercicios, posicion + 1, aux, posicion, aux.length - posicion);
+		 }
+		 ejercicios = new Ejercicio[aux.length];
+		 System.arraycopy(aux, 0, ejercicios, 0, aux.length);
+		 numEjercicios--;
+		 }
+
+	 public void borrarEjercicio(int posicion) {
+		 if (numEjercicios >= ejercicios.length) {
+			for (int i = 0; i < ejercicios.length; i++) {
+				if (i == posicion) {
+					eliminarEjercicio(i);
+				}
+			}
+		}
+	}
 	
 }

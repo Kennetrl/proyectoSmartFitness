@@ -34,31 +34,38 @@ public class MenuSistema {
 			correcto2 = Validaciones.validarOpcion6(opcion);
 			
 			if (correcto2) {
-				if(opcion.equals("1")) {
+				
+				switch(opcion) {
+				case "1":
 					//Crear Cuenta
 					crearCuenta();
 					correcto = true;
-				} else if(opcion.equals("2")) {
+					break;
+				case "2":
 					//Listar Usuario
 					System.out.println(centro.listarUsuario());
 					correcto = true;
-				} else if(opcion.equals("3")){
+					break;
+				case "3":
 					//Encontrar Usuario
 					System.out.println("Digite el numero(id) del usuario");
 					int numBuscar = leer.nextInt();
 					System.out.println(centro.buscarUsuario(numBuscar));
 					correcto = true;
-				} else if(opcion.equals("4")){
+					break;
+				case "4":
 					//Modificar Usuario
 					editarUsuario();
 					correcto = true;
-				} else if (opcion.equals("5")) {
+					break;
+				case "5":
 					//Eliminar Usuario
 					System.out.println("Digite el numero de usuario(id) a eliminar");
 					int numEliminar = leer.nextInt();
-					centro.eliminarUsuario(numEliminar);
+					centro.borrarUsuario(numEliminar);
 					correcto = true;
-				} else if (opcion.equals("6")){
+					break;
+				case "6":
 					//Regresar
 					System.out.println("Regresando al Menu Principal");
 					correcto=false;

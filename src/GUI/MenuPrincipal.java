@@ -35,7 +35,7 @@ public class MenuPrincipal {
 	public static void menu(Scanner leer,int opcion,boolean correcto) {
 		boolean correcto1=true;
 		while(correcto1) {
-			System.out.println("Elija la opcion");
+			System.out.println("Elija la opcion: ");
 			System.out.println("========================");
 			System.out.println("1 - INGRESAR AL SISTEMA");
 			System.out.println("2 - GESTIONAR PLAN ENTRENAMIENTO");
