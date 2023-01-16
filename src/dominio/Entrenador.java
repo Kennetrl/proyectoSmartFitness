@@ -7,7 +7,7 @@ package dominio;
  * @author  Vinicio Matango
  * @author  Kennet Rodriguez
  */
-public class Entrenador extends Cuenta{
+public class Entrenador{
 	private int id;
 	private String nombre;
 	private String correo;

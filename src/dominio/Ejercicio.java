@@ -8,10 +8,11 @@ package dominio;
  * @author Vinicio Matango
  * @author Kennet Rodriguez
  */
-public class Ejercicio {
-	private int id;
-	private String nombre;
-	private String tipoEjercicio;
+public class Ejercicio{
+	protected int id;
+	protected String nombre;
+	protected String tipoEjercicio;
+	
 
 	public Ejercicio() {
 	}

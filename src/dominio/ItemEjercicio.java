@@ -105,9 +105,27 @@ public class ItemEjercicio {
 		 ejercicios[posicion] = new Ejercicio(id, nombre, tipoEjercicio);
 	 }
 	 
-	 public void eliminarEjercicio(int posicion) {
-		 System.out.println("El ejercicio N"+ posicion + " ha sido eliminada");
-		 ejercicios[posicion]=null;
-	 }
+	public void eliminarEjercicio(int posicion) {
+		 Ejercicio aux[] = new Ejercicio[ejercicios.length - 1];
+		 if (posicion > 0) {
+		 System.arraycopy(ejercicios, 0, aux, 0, posicion);
+		 }
+		 if (aux.length > posicion) {
+		 System.arraycopy(ejercicios, posicion + 1, aux, posicion, aux.length - posicion);
+		 }
+		 ejercicios = new Ejercicio[aux.length];
+		 System.arraycopy(aux, 0, ejercicios, 0, aux.length);
+		 numEjercicios--;
+		 }
+
+	 public void borrarEjercicio(int posicion) {
+		 if (numEjercicios >= ejercicios.length) {
+			for (int i = 0; i < ejercicios.length; i++) {
+				if (i == posicion) {
+					eliminarEjercicio(i);
+				}
+			}
+		}
+	}
 	
 }

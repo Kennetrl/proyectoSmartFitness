@@ -194,10 +194,28 @@ public class PlanEntrenamiento {
 		 items[posicion] = new ItemEjercicio(id, ejercicios, repeticion, numEjercicios);
 	 }
 	 
-	 public void eliminarItemsEjercicio(int posicion) {
-		 System.out.println("El item del ejercicio N"+ posicion + " ha sido eliminada");
-		 items[posicion]=null;
-	 }
+	public void eliminarItemsEjercicio(int posicion) {
+			ItemEjercicio aux[] = new ItemEjercicio[items.length - 1];
+		 if (posicion > 0) {
+		 System.arraycopy(items, 0, aux, 0, posicion);
+		 }
+		 if (aux.length > posicion) {
+		 System.arraycopy(items, posicion + 1, aux, posicion, aux.length - posicion);
+		 }
+		 items = new ItemEjercicio[aux.length];
+		 System.arraycopy(aux, 0, items, 0, aux.length);
+		 numItems--;
+		 }
+
+	 public void borrarItemsEjercicio(int posicion) {
+		 if (numItems >= items.length) {
+			for (int i = 0; i < items.length; i++) {
+				if (i == posicion) {
+					eliminarItemsEjercicio(i);
+				}
+			}
+		}
+	}
 	
 	
 	//entrenador
@@ -230,10 +248,28 @@ public class PlanEntrenamiento {
 		entrenadores[posicion] = new Entrenador(id, nombre, correo, contrasenia, certificadoProfesional);
 	 }
 	 
-	 public void eliminarEntrenadores(int posicion) {
-		 System.out.println("El entrenador N"+ posicion + " ha sido eliminada");
-		 entrenadores[posicion]=null;
+	public void eliminarEntrenadores(int posicion) {
+		Entrenador aux[] = new Entrenador[entrenadores.length - 1];
+	 if (posicion > 0) {
+	 System.arraycopy(entrenadores, 0, aux, 0, posicion);
 	 }
+	 if (aux.length > posicion) {
+	 System.arraycopy(entrenadores, posicion + 1, aux, posicion, aux.length - posicion);
+	 }
+	 entrenadores = new Entrenador[aux.length];
+	 System.arraycopy(aux, 0, entrenadores, 0, aux.length);
+	 numEntrenadores--;
+	 }
+
+	 public void borrarEntrenadores(int posicion) {
+		 if (numEntrenadores >= entrenadores.length) {
+			for (int i = 0; i < entrenadores.length; i++) {
+				if (i == posicion) {
+					eliminarEntrenadores(i);
+				}
+			}
+		}
+	}
 	
 	//Progresos
 	public void crearProgreso(int id, int fecha, double peso, boolean logrosAlcanzados) {
@@ -265,8 +301,26 @@ public class PlanEntrenamiento {
 		progresos[posicion] = new ProgresoUsuario(id, fecha, peso, logrosAlcanzados);
 	 }
 	 
-	 public void eliminarProgreso(int posicion) {
-		 System.out.println("El progreso N"+ posicion + " ha sido eliminado");
-		 progresos[posicion]=null;
+	public void eliminarProgreso(int posicion) {
+		ProgresoUsuario aux[] = new ProgresoUsuario[progresos.length - 1];
+	 if (posicion > 0) {
+	 System.arraycopy(progresos, 0, aux, 0, posicion);
 	 }
+	 if (aux.length > posicion) {
+	 System.arraycopy(progresos, posicion + 1, aux, posicion, aux.length - posicion);
+	 }
+	 progresos = new ProgresoUsuario[aux.length];
+	 System.arraycopy(aux, 0, progresos, 0, aux.length);
+	 numProgresos--;
+	 }
+
+	 public void borrarProgreso(int posicion) {
+		 if (numProgresos >= progresos.length) {
+			for (int i = 0; i < progresos.length; i++) {
+				if (i == posicion) {
+					eliminarProgreso(i);
+				}
+			}
+		}
+	}
 }

@@ -12,7 +12,7 @@ import java.util.Arrays;
  * @author Vinicio Matango
  * @author Kennet Rodriguez
  */
-public class Usuario {
+public class Usuario{
 	
 	//atributos
 	private int id;
@@ -133,9 +133,27 @@ public class Usuario {
 		cuentas[posicion] = new Cuenta(id, tipoEnfermedad, edad, peso, altura, sugerencias, numSugerencia, planes, numPlanes);
 	 }
 	 
-	 public void eliminarCuentas(int posicion) {
-		 System.out.println("La cuenta N"+ posicion + " ha sido eliminada");
-		 cuentas[posicion]=null;
-	 }
+	public void eliminarCuentas(int posicion) {
+		 Cuenta aux[] = new Cuenta[cuentas.length - 1];
+		 if (posicion > 0) {
+		 System.arraycopy(cuentas, 0, aux, 0, posicion);
+		 }
+		 if (aux.length > posicion) {
+		 System.arraycopy(cuentas, posicion + 1, aux, posicion, aux.length - posicion);
+		 }
+		 cuentas = new Cuenta[aux.length];
+		 System.arraycopy(aux, 0, cuentas, 0, aux.length);
+		 numCuentas--;
+		 }
+
+	 public void borrarCuentas(int posicion) {
+		 if (numCuentas >= cuentas.length) {
+			for (int i = 0; i < cuentas.length; i++) {
+				if (i == posicion) {
+					eliminarCuentas(i);
+				}
+			}
+		}
+	}
 
 }

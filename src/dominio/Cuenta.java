@@ -164,9 +164,27 @@ public class Cuenta{
 		 planes[posicion] = new PlanEntrenamiento(id, nombrePlanEntrenamiento, tiempoEmpleado, repeticion, nombreRutina, items, numItems, entrenadores, numEntrenadores, progresos, numProgresos);
 	 }
 	 
-	 public void eliminarPlanes(int posicion) {
-		 System.out.println("El plan de entrenamiento N"+ posicion + " ha sido eliminada");
-		 planes[posicion]=null;
+	public void eliminarPlanes(int posicion) {
+		 PlanEntrenamiento aux[] = new PlanEntrenamiento[planes.length - 1];
+		 if (posicion > 0) {
+		 System.arraycopy(planes, 0, aux, 0, posicion);
+		 }
+		 if (aux.length > posicion) {
+		 System.arraycopy(planes, posicion + 1, aux, posicion, aux.length - posicion);
+		 }
+		 planes = new PlanEntrenamiento[aux.length];
+		 System.arraycopy(aux, 0, planes, 0, aux.length);
+		 numPlanes--;
+		 }
+
+	 public void borrarPlanes(int posicion) {
+		 if (numPlanes >= planes.length) {
+			for (int i = 0; i < planes.length; i++) {
+				if (i == posicion) {
+					eliminarPlanes(i);
+				}
+			}
+		}
 	 }
 
 	public void crearSugerencia(int id, String comentario) {
@@ -197,9 +215,27 @@ public class Cuenta{
 		 sugerencias[posicion] = new Sugerencia(id, comentario);
 	 }
 	 
-	 public void eliminarSugerencia(int posicion) {
-		 System.out.println("La sugerencia N"+ posicion + " ha sido eliminada");
-		 sugerencias[posicion]=null;
+	public void eliminarSugerencia(int posicion) {
+		 Sugerencia aux[] = new Sugerencia[sugerencias.length - 1];
+		 if (posicion > 0) {
+			 System.arraycopy(sugerencias, 0, aux, 0, posicion);
+		 }
+		 if (aux.length > posicion) {
+			 System.arraycopy(sugerencias, posicion + 1, aux, posicion, aux.length - posicion);
+		 }
+		 sugerencias = new Sugerencia[aux.length];
+		 	System.arraycopy(aux, 0, sugerencias, 0, aux.length);
+		 numSugerencias--;
+		 }
+
+	 public void borrarSugerencia(int posicion) {
+		 if (numSugerencias >= sugerencias.length) {
+			for (int i = 0; i < sugerencias.length; i++) {
+				if (i == posicion) {
+					eliminarSugerencia(i);
+				}
+			}
+		}
 	 }
 	
 }
