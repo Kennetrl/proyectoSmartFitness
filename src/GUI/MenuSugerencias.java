@@ -53,8 +53,7 @@ public class MenuSugerencias {
 		System.out.println("Digite el id de la Sugerencia");
 		id=leer.nextInt();
 		System.out.println("Digite el comentario");
-		leer.next();
-		comentario=leer.nextLine();
+		comentario=leer.next();
 		cuenta.crearSugerencia(id, comentario);
 	}
 	public static void listarSugerencia() {

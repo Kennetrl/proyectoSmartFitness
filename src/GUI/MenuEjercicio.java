@@ -56,8 +56,7 @@ public class MenuEjercicio {
 		System.out.println("Digite el nombre del ejercicio");
 		nombre = leer.next();
 		System.out.println("Digite el tipo de ejercicio del ejercicio");
-		leer.next();
-		tipoEjercicio = leer.nextLine();
+		tipoEjercicio = leer.next();
 		itemEjercicio.crearEjercicio(id, nombre, tipoEjercicio);
 	}
 	public static void listarEjercicios(){

@@ -5,27 +5,35 @@ public class Aerobico extends Ejercicio{
 	private String intensidades;
 	
 	public Aerobico() {
+		super();
+		/*
 		this.id=1;
 		this.nombre="";
+		this.tipoEjercicio=""; 
+		 */
 		this.numRepeticiones=1;
 		this.intensidades="";
-		this.tipoEjercicio="";
+		
 	}
 	
-	public Aerobico(int id, String nombre, int numRepeticiones, String intensidades, String tipoEjercicio) {
+	public Aerobico(int id, String nombre, String tipoEjercicio, int numRepeticiones, String intensidades) {
+		super(id, nombre, tipoEjercicio);
+		/*
 		this.id=id;;
 		this.nombre=nombre;
+		this.tipoEjercicio=tipoEjercicio;
+		 */
 		this.numRepeticiones=numRepeticiones;
 		this.intensidades=intensidades;
-		this.tipoEjercicio=tipoEjercicio;
+
 	}
 	
 	public Aerobico(Aerobico a) {
 		this.id=a.id;
 		this.nombre=a.nombre;
+		this.tipoEjercicio=a.tipoEjercicio;
 		this.numRepeticiones=a.numRepeticiones;
 		this.intensidades=a.intensidades;
-		this.tipoEjercicio=a.tipoEjercicio;
 	}
 
 	public int getNumRepeticiones() {
@@ -46,8 +54,11 @@ public class Aerobico extends Ejercicio{
 
 	@Override
 	public String toString() {
+		
 		return "Aerobico [numRepeticiones=" + numRepeticiones + ", intensidades=" + intensidades + ", id=" + id
 				+ ", nombre=" + nombre + ", tipoEjercicio=" + tipoEjercicio + "]";
 	}
+
+	
 	
 }

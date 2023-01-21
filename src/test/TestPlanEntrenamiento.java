@@ -7,14 +7,17 @@ public class TestPlanEntrenamiento {
 	public static void main(String []args) {
 		
 		PlanEntrenamiento planEntrenamiento= new PlanEntrenamiento();
-		planEntrenamiento.crearItemEjercicio(1, null,  5, 2);
-		planEntrenamiento.crearItemEjercicio(2, null,  2, 10);
-		planEntrenamiento.crearItemEjercicio(3, null,  4, 4);
+	    Ejercicio[] ejercicios = new Ejercicio[1];
+	    ejercicios[0] = new Ejercicio(1, "Sentadilla", "Anaerobico");
+	    
+		planEntrenamiento.crearItemEjercicio(1, ejercicios, 3, 5);;
+		planEntrenamiento.crearItemEjercicio(2, ejercicios,  2, 10);
+		planEntrenamiento.crearItemEjercicio(3, ejercicios, 4, 4);
 		
 		System.out.println(planEntrenamiento.listarItemsEjercicio());
 		System.out.println(planEntrenamiento.buscarItemsEjercicio(2));
 		System.out.println("");
-		planEntrenamiento.editarItemsEjercicio(2, 2, null, 3, 3);
+		planEntrenamiento.editarItemsEjercicio(2, 2, ejercicios, 3, 3);
 		System.out.println(planEntrenamiento.listarItemsEjercicio());
 		planEntrenamiento.eliminarItemsEjercicio(3);
 		System.out.println(planEntrenamiento.listarItemsEjercicio());
@@ -42,7 +45,8 @@ public class TestPlanEntrenamiento {
 		System.out.println(planEntrenamiento.listarProgreso());
 		planEntrenamiento.editarProgreso(2, 2, 18, 64.5, true);
 		System.out.println(planEntrenamiento.listarProgreso());
-		planEntrenamiento.eliminarProgreso(3);
+		planEntrenamiento.eliminarProgreso(2);
+		
 		System.out.println(planEntrenamiento.listarProgreso());
 	}
 }

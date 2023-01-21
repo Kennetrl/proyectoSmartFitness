@@ -140,7 +140,7 @@ public class MenuCuenta {
 	public static void eliminarCuenta() {
 		System.out.println("Digite el numero de cuenta a eliminar");
 		int numCuenta = leer.nextInt();
-		usuario.eliminarCuentas(numCuenta);
+		usuario.borrarCuentas(numCuenta);
 		System.out.println("Cuenta eliminada");
 
 		

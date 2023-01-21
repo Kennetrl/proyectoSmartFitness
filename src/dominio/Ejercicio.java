@@ -49,7 +49,4 @@ public class Ejercicio{
 	public String toString() {
 		return "id = " + id + ", nombre = " + nombre + ", tipoEjercicio = " + tipoEjercicio;
 	}
-
-	
-	
 }
